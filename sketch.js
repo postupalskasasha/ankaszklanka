@@ -1,4 +1,4 @@
-let points = [ 
+let points = [
 [100, 908], [736, 908], [678, 830], [678, 725], [733, 673], [806, 716], [805, 813], //7
 [748, 860], [682, 813], [694, 676], [770, 629], [865, 656], [912, 748], [1005, 750], //14
 [1098, 730], [1140, 653], [1226, 626], [1298, 641], [1333, 700], [1337, 764], [1312, 826], //21
@@ -22,45 +22,56 @@ let py = [];
 let z = 0;
 let s = 8;
 
-function setup() { 
-createCanvas(1920, 1080); 
+function setup() {
+    createCanvas(1920, 1080);
+    let button = createButton("i'm done");
+    button.position(960, 960);
+    button.mousePressed(repaint);
 }
 
 function draw() {
-  
-  background(255); 
+ 
+  background(255);
   noFill();
   textSize(15);      // Ustaw rozmiar tekstu
   text("start here", 80, 870);  // Napisz tekst w punkcie (80, 870)
   text("connect the dots", 60, 970);  // Napisz tekst w punkcie (80, 870)
- for (let i = 0; i < points.length; i++) { 
-  let x = points[i][0]; 
-  let y = points[i][1]; 
+ for (let i = 0; i < points.length; i++) {
+  let x = points[i][0];
+  let y = points[i][1];
   ellipse(x, y, 1, 1);
 text(i + 1, x + 5, y);
  }
 beginShape();
-for(let i = 0; i < px.length; i++){ 
+for(let i = 0; i < px.length; i++){
     vertex(px[i],py[i]);
   }
-  
+ 
   endShape();
-  
+ 
   stroke(0);
   strokeWeight(1);
-  
-  for(let i = 0; i < px.length; i++){ 
+ 
+  for(let i = 0; i < px.length; i++){
     point(px[i],py[i]);
   }
 }
 
 function mouseReleased(){  
 
-  if(mouseX > points[z][0]-s && mouseX < points[z][0] + s 
-  && mouseY > points[z][1]-s && mouseY < points[z][1]+s) {
+  if(mouseX > points[z][0]-s && mouseX < points[z][0] + s
+  & mouseY > points[z][1]-s && mouseY < points[z][1]+s) {
    z++;
   px.push(mouseX);
   py.push(mouseY);
+  }
+ 
+}
+
+function repaint() {
+ window.location.href="https://mgaleziok.github.io/CHILDHOOD/"
+ 
+}
   }
   
 } 
