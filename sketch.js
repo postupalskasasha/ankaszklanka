@@ -72,6 +72,4 @@ function repaint() {
  window.location.href="https://mgaleziok.github.io/CHILDHOOD/"
  
 }
-  }
-  
-} 
+ 
